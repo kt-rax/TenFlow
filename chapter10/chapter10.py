@@ -2,6 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def sigmoid(z):
     s = 1.0/(1.0+np.exp(-z))
     return s
@@ -59,6 +60,7 @@ def predict(w,b,X):
             Y_prediction[:,i] = 0
     return Y_prediction
   
+
 def model (X_train,Y_train,X_test,Y_test,num_iterations= 1000,learning_rate =0.5,print_cost =False):
 
     w,b = initialize(X_train.shape[0])
@@ -80,7 +82,8 @@ def model (X_train,Y_train,X_test,Y_test,num_iterations= 1000,learning_rate =0.5
     print('Accuracy Train',train_accuracy)
     
     return d
-     
+  
+    
 from sklearn.datasets import  fetch_openml
 from sklearn.metrics import  confusion_matrix
 import  tensorflow as tf
@@ -108,6 +111,9 @@ Y_train_tr = Y_train.reshape(1,Y_train.shape[0])
 
 X_dev_tr = X_dev_normalised.transpose()
 Y_dev_tr = Y_dev.reshape(1,Y_dev.shape[0])
+
+#dim_train = X_train_tr.shape[1]
+#dim_dev = X_dev_tr.shape[1]
 
 Y_train_shifted = Y_train_tr - 1
 Y_dev_shifted = Y_dev_tr -1
